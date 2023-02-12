@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import {Route, Routes} from "react-router";
+import {Navigate, Route, Routes} from "react-router";
 import {
     AboutPage,
     AlbumsPage,
@@ -21,7 +21,8 @@ const App = () => {
       <div>
             <Routes>
                 <Route path={'/'} element={<MainLayout/>}>
-                    <Route index element={<HomePage/>}/>
+                    <Route index element={<Navigate to={'home'}/>}/>
+                    <Route path={'home'} element={<HomePage/>}/>
                     <Route path={'users'} element={<UsersPage/>}/>
                     <Route path={'posts'} element={<PostsPage/>}>
                          <Route path={':postId'} element={<PostDetailsPage/>}/>
